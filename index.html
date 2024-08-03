@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE-EDITOR</title>
+    <link href="style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
+</head>
+<body>
+    <div class="container">
+        <div class="left" >
+            <label><i class='bx bxl-html5'></i>HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+            <label><i class='bx bxl-css3' ></i>CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+            <label><i class='bx bxl-javascript'></i>JAVASCRIPT</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class='bx bx-play' ></i>OUTPUT:</label>
+            <iframe id="out-code"></iframe>
+        </div>
+    </div>
+    <script>
+        function run(){
+            let html=document.getElementById("html-code").value;
+            let css=document.getElementById("css-code").value;
+            let js1=document.getElementById("js-code").value;
+            let out=document.getElementById("out-code");
+          out.contentDocument.body.innerHTML=html+"<style>"+css+"</style>"
+          out.contentWindow.eval(js1);
+
+
+        }
+    </script>
+</body>
+</html>
